@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #0b0d12;
+    background-color: #07090e;
     color: #f0f0ff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -19,81 +19,121 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #161b26 0%, #0b0d12 100%);
+    background: radial-gradient(circle at center, #121824 0%, #07090e 100%);
 }
 
 .hidden {
     display: none !important;
 }
 
+.pause-overlay {
+    background: rgba(7, 9, 14, 0.85) !important;
+    backdrop-filter: blur(5px);
+}
+
 .game-title {
-    font-size: 42px;
+    font-size: 46px;
     color: #00f0ff;
-    text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
-    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.6), 0 0 40px rgba(0, 240, 255, 0.2);
+    margin-bottom: 5px;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 .game-subtitle {
     font-size: 20px;
     color: #ff0033;
+    text-shadow: 0 0 10px rgba(255, 0, 51, 0.5);
     margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
-.menu-options button, .back-btn {
-    background: #161b26;
+.menu-options button, .back-btn, .world-grid button {
+    background: linear-gradient(135deg, #161b26 0%, #0d111a 100%);
     color: #f0f0ff;
-    border: 2px solid #00f0ff;
-    padding: 15px 30px;
-    font-size: 18px;
+    border: 2px solid #2d374b;
+    padding: 14px 28px;
+    font-size: 16px;
     font-weight: bold;
-    margin: 10px;
+    margin: 8px;
     cursor: pointer;
     border-radius: 8px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-.menu-options button:hover, .back-btn:hover {
+.menu-options button:hover, .back-btn:hover, .world-grid button:hover {
     background: #00f0ff;
-    color: #0b0d12;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+    color: #07090e;
+    border-color: #00f0ff;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+    transform: translateY(-2px);
 }
 
 .section-title {
     font-size: 32px;
     color: #ff0033;
-    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(255, 0, 51, 0.5);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
 }
 
-.char-grid {
+.char-grid, .world-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+}
+
+.world-grid {
+    grid-template-columns: 1fr;
+    width: 500px;
 }
 
 .char-card {
-    background: #121722;
+    background: linear-gradient(135deg, #121722 0%, #0a0d14 100%);
     border: 2px solid #2d374b;
     padding: 20px;
-    width: 300px;
-    border-radius: 10px;
+    width: 280px;
+    border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .char-card:hover {
     border-color: #ffd700;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    transform: translateY(-3px);
 }
 
+.char-card h3 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.lado {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.lado.sombrio { background: rgba(255,0,51,0.2); color: #ff0033; border: 1px solid #ff0033; }
+.lado.luz { background: rgba(0,240,255,0.2); color: #00f0ff; border: 1px solid #00f0ff; }
+
 .manual-content {
-    background: #121722;
+    background: #10141e;
     border: 2px solid #2d374b;
     padding: 30px;
-    border-radius: 10px;
-    width: 800px;
-    line-height: 1.8;
-    margin-bottom: 30px;
+    border-radius: 12px;
+    width: 750px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
 }
 
 #hud {
@@ -103,14 +143,19 @@ body {
     right: 40px;
     display: flex;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: #ffd700;
-    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    text-shadow: 0 0 8px rgba(0,0,0,0.9);
+    background: rgba(11, 13, 18, 0.7);
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: 1px solid #2d374b;
 }
 
 canvas {
     border: 2px solid #2d374b;
-    background: #0b0d12;
-    box-shadow: 0 0 30px rgba(0,0,0,0.9);
+    background: radial-gradient(circle at center, #10141f 0%, #07090e 100%);
+    box-shadow: 0 0 40px rgba(0,0,0,0.9), inset 0 0 30px rgba(0,0,0,0.8);
+    border-radius: 4px;
 }
