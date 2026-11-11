@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars: Echoes of the Force</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TELA DE MENU -->
+    <div id="menu-screen" class="screen">
+        <h1 class="game-title">STAR WARS: ECHOES OF THE FORCE</h1>
+        <h2 class="game-subtitle">Dark & Light Metroidvania Platformer (50 Fases)</h2>
+        <div class="menu-options">
+            <button onclick="iniciarJogo()">INICIAR JORNADA</button>
+            <button onclick="mudarTela('selection-screen')">SELECIONAR PERSONAGEM</button>
+            <button onclick="mudarTela('manual-screen')">MANUAL & LORE</button>
+        </div>
+    </div>
+
+    <!-- TELA DE SELEÇÃO DE PERSONAGEM -->
+    <div id="selection-screen" class="screen hidden">
+        <h2 class="section-title">SELECIONE SEU PERSONAGEM</h2>
+        <div class="char-grid">
+            <div class="char-card" onclick="escolherPersonagem('Vader')">
+                <h3>Darth Vader</h3>
+                <p>Alinhamento: Lado Sombrio</p>
+                <p>Estilo: Tank & Brutal Force</p>
+            </div>
+            <div class="char-card" onclick="escolherPersonagem('Kylo')">
+                <h3>Kylo Ren</h3>
+                <p>Alinhamento: Lado Sombrio</p>
+                <p>Estilo: Berserker & Stasis</p>
+            </div>
+            <div class="char-card" onclick="escolherPersonagem('Luke')">
+                <h3>Luke Skywalker</h3>
+                <p>Alinhamento: Lado da Luz</p>
+                <p>Estilo: Agile Jedi Master</p>
+            </div>
+            <div class="char-card" onclick="escolherPersonagem('Rey')">
+                <h3>Rey</h3>
+                <p>Alinhamento: Lado da Luz</p>
+                <p>Estilo: Technomancer Weaver</p>
+            </div>
+        </div>
+        <button class="back-btn" onclick="mudarTela('menu-screen')">VOLTAR AO MENU</button>
+    </div>
+
+    <!-- TELA DE MANUAL -->
+    <div id="manual-screen" class="screen hidden">
+        <h2 class="section-title">MANUAL DE SOBREVIVÊNCIA E LORE</h2>
+        <div class="manual-content">
+            <p><strong>• PROGRESSÃO DE 50 FASES:</strong> Divididas em 5 Planetas (10 fases por planeta).</p>
+            <p><strong>• CHEFES ÉPICOS:</strong> Fases 10, 20, 30, 40 e 50 contêm chefes lendários.</p>
+            <p><strong>• POGO ATTACK:</strong> Pressione a tecla <strong>S</strong> ou <strong>Seta Para Baixo</strong> no ar para quicar em cima dos inimigos.</p>
+            <p><strong>• CONTROLES:</strong> Use as teclas <strong>A / D</strong> (ou Setas) para andar, <strong>ESPAÇO</strong> para pular.</p>
+        </div>
+        <button class="back-btn" onclick="mudarTela('menu-screen')">VOLTAR AO MENU</button>
+    </div>
+
+    <!-- TELA DO JOGO (CANVAS) -->
+    <div id="game-screen" class="screen hidden">
+        <div id="hud">
+            <span id="hud-planeta">Planeta 1: Moraband</span>
+            <span id="hud-fase">Fase 1/50</span>
+            <span id="hud-heroi">Herói: Vader</span>
+        </div>
+        <canvas id="gameCanvas" width="1280" height="720"></canvas>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
