@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0d12;
+    color: #f0f0ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.screen {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #161b26 0%, #0b0d12 100%);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.game-title {
+    font-size: 42px;
+    color: #00f0ff;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    margin-bottom: 10px;
+}
+
+.game-subtitle {
+    font-size: 20px;
+    color: #ff0033;
+    margin-bottom: 40px;
+}
+
+.menu-options button, .back-btn {
+    background: #161b26;
+    color: #f0f0ff;
+    border: 2px solid #00f0ff;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.menu-options button:hover, .back-btn:hover {
+    background: #00f0ff;
+    color: #0b0d12;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+}
+
+.section-title {
+    font-size: 32px;
+    color: #ff0033;
+    margin-bottom: 30px;
+}
+
+.char-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.char-card {
+    background: #121722;
+    border: 2px solid #2d374b;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.char-card:hover {
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.manual-content {
+    background: #121722;
+    border: 2px solid #2d374b;
+    padding: 30px;
+    border-radius: 10px;
+    width: 800px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+canvas {
+    border: 2px solid #2d374b;
+    background: #0b0d12;
+    box-shadow: 0 0 30px rgba(0,0,0,0.9);
+}
