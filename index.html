@@ -8,63 +8,100 @@
 </head>
 <body>
 
-    <!-- TELA DE MENU -->
+    <!-- TELA DE MENU PRINCIPAL -->
     <div id="menu-screen" class="screen">
+        <div class="glow-bg"></div>
         <h1 class="game-title">STAR WARS: ECHOES OF THE FORCE</h1>
-        <h2 class="game-subtitle">Dark & Light Metroidvania Platformer (50 Fases)</h2>
+        <h2 class="game-subtitle">Dark & Light Metroidvania Platformer</h2>
         <div class="menu-options">
             <button onclick="iniciarJogo()">INICIAR JORNADA</button>
             <button onclick="mudarTela('selection-screen')">SELECIONAR PERSONAGEM</button>
+            <button onclick="mudarTela('world-screen')">SELECIONAR PLANETA (1-50)</button>
+            <button onclick="mudarTela('crystals-screen')">CRISTAIS KYBER (CHARMS)</button>
             <button onclick="mudarTela('manual-screen')">MANUAL & LORE</button>
         </div>
     </div>
 
     <!-- TELA DE SELEÇÃO DE PERSONAGEM -->
     <div id="selection-screen" class="screen hidden">
-        <h2 class="section-title">SELECIONE SEU PERSONAGEM</h2>
+        <h2 class="section-title">ESCOLHA SEU DESTINO</h2>
         <div class="char-grid">
             <div class="char-card" onclick="escolherPersonagem('Vader')">
                 <h3>Darth Vader</h3>
-                <p>Alinhamento: Lado Sombrio</p>
-                <p>Estilo: Tank & Brutal Force</p>
+                <span class="lado sombrio">Lado Sombrio</span>
+                <p>Tank & Brutal Force (6 Corações)</p>
             </div>
             <div class="char-card" onclick="escolherPersonagem('Kylo')">
                 <h3>Kylo Ren</h3>
-                <p>Alinhamento: Lado Sombrio</p>
-                <p>Estilo: Berserker & Stasis</p>
+                <span class="lado sombrio">Lado Sombrio</span>
+                <p>Berserker & Stasis (4 Corações)</p>
             </div>
             <div class="char-card" onclick="escolherPersonagem('Luke')">
                 <h3>Luke Skywalker</h3>
-                <p>Alinhamento: Lado da Luz</p>
-                <p>Estilo: Agile Jedi Master</p>
+                <span class="lado luz">Lado da Luz</span>
+                <p>Agile Jedi Master (5 Corações)</p>
             </div>
             <div class="char-card" onclick="escolherPersonagem('Rey')">
                 <h3>Rey</h3>
-                <p>Alinhamento: Lado da Luz</p>
-                <p>Estilo: Technomancer Weaver</p>
+                <span class="lado luz">Lado da Luz</span>
+                <p>Technomancer Weaver (4 Corações)</p>
             </div>
         </div>
         <button class="back-btn" onclick="mudarTela('menu-screen')">VOLTAR AO MENU</button>
     </div>
 
-    <!-- TELA DE MANUAL -->
-    <div id="manual-screen" class="screen hidden">
-        <h2 class="section-title">MANUAL DE SOBREVIVÊNCIA E LORE</h2>
-        <div class="manual-content">
-            <p><strong>• PROGRESSÃO DE 50 FASES:</strong> Divididas em 5 Planetas (10 fases por planeta).</p>
-            <p><strong>• CHEFES ÉPICOS:</strong> Fases 10, 20, 30, 40 e 50 contêm chefes lendários.</p>
-            <p><strong>• POGO ATTACK:</strong> Pressione a tecla <strong>S</strong> ou <strong>Seta Para Baixo</strong> no ar para quicar em cima dos inimigos.</p>
-            <p><strong>• CONTROLES:</strong> Use as teclas <strong>A / D</strong> (ou Setas) para andar, <strong>ESPAÇO</strong> para pular.</p>
+    <!-- TELA DE SELEÇÃO DE PLANETA E FASES -->
+    <div id="world-screen" class="screen hidden">
+        <h2 class="section-title">MAPA GALÁXICO (50 FASES)</h2>
+        <div class="world-grid">
+            <button onclick="selecionarMundo(1)">Planeta 1: Moraband (Fases 1-10)</button>
+            <button onclick="selecionarMundo(11)">Planeta 2: Coruscant 1313 (Fases 11-20)</button>
+            <button onclick="selecionarMundo(21)">Planeta 3: Mustafar (Fases 21-30)</button>
+            <button onclick="selecionarMundo(31)">Planeta 4: Ilum / Starkiller (Fases 31-40)</button>
+            <button onclick="selecionarMundo(41)">Planeta 5: O Véu do Vazio (Fases 41-50)</button>
         </div>
         <button class="back-btn" onclick="mudarTela('menu-screen')">VOLTAR AO MENU</button>
     </div>
 
-    <!-- TELA DO JOGO (CANVAS) -->
+    <!-- TELA DE CRISTAIS KYBER -->
+    <div id="crystals-screen" class="screen hidden">
+        <h2 class="section-title">SINTONIA DE CRISTAIS KYBER (CHARMS)</h2>
+        <div class="manual-content">
+            <p><strong>• Foco Kyber Vermelho (2 Slots):</strong> +25% de dano de sabre de luz.</p>
+            <p><strong>• Matriz de Estase (3 Slots):</strong> Amplifica o controle de grupo temporal.</p>
+            <p><strong>• Sintonia Ancestral (2 Slots):</strong> Reduz o custo de pontos de Força.</p>
+            <p><strong>• Lâmina Alargada (2 Slots):</strong> Aumenta o alcance horizontal do ataque.</p>
+        </div>
+        <button class="back-btn" onclick="mudarTela('menu-screen')">VOLTAR AO MENU</button>
+    </div>
+
+    <!-- TELA DE MANUAL & LORE -->
+    <div id="manual-screen" class="screen hidden">
+        <h2 class="section-title">MANUAL DO JOGADOR & LORE</h2>
+        <div class="manual-content">
+            <p><strong>• A LORE:</strong> Uma fenda no espaço-tempo fundiu eras. Você deve navegar por 5 planetas corrompidos para restaurar ou dominar o Vazio.</p>
+            <p><strong>• POGO ATTACK:</strong> Pressione a tecla <strong>S</strong> ou <strong>Seta Para Baixo</strong> no ar para quicar em cima de inimigos e espinhos (Estilo Hollow Knight).</p>
+            <p><strong>• CONTROLES:</strong> Use as teclas <strong>A / D</strong> para andar, <strong>ESPAÇO</strong> para pular, <strong>ESC</strong> para pausar.</p>
+        </div>
+        <button class="back-btn" onclick="mudarTela('menu-screen')">VOLTAR AO MENU</button>
+    </div>
+
+    <!-- TELA DE PAUSA -->
+    <div id="pause-screen" class="screen hidden pause-overlay">
+        <h2 class="section-title">JOGO PAUSADO</h2>
+        <div class="menu-options">
+            <button onclick="retomarJogo()">RETOMAR JORNADA</button>
+            <button onclick="mudarTela('menu-screen'); fecharPausa();">SAIR PARA O MENU</button>
+        </div>
+    </div>
+
+    <!-- TELA DO JOGO (CANVAS COM HUD PREMIUM) -->
     <div id="game-screen" class="screen hidden">
         <div id="hud">
             <span id="hud-planeta">Planeta 1: Moraband</span>
             <span id="hud-fase">Fase 1/50</span>
             <span id="hud-heroi">Herói: Vader</span>
+            <span id="hud-hp">HP: 💖💖💖💖💖💖</span>
         </div>
         <canvas id="gameCanvas" width="1280" height="720"></canvas>
     </div>
